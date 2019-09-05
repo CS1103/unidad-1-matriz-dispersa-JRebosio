@@ -82,6 +82,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="C:/Proyecto 2/MatrizDispersa.cpp">
+			<Option target="Proyecto_2"/>
+		</Unit>
+		<Unit filename="C:/Proyecto 2/MatrizDispersa.h">
+			<Option target="Proyecto_2"/>
+		</Unit>
 		<Unit filename="C:/Proyecto 2/main.cpp">
 			<Option target="Proyecto_2"/>
 		</Unit>

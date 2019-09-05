@@ -1,5 +1,6 @@
 #include <vector>
 #include <iostream>
+#include "MatrizDispersa.h"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ int main()
     }
 
 
-    MatrixDispersa < int > matrix ( 3 );
+    MatrizDispersa < int > matrix ( 3 );
     MatrizDispersa < int > matrix2 ( 4 , 5 );
 
     int val;

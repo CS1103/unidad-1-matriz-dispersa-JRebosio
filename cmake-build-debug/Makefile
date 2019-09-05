@@ -122,6 +122,33 @@ Proyecto_2/fast:
 	$(MAKE) -f CMakeFiles\Proyecto_2.dir\build.make CMakeFiles/Proyecto_2.dir/build
 .PHONY : Proyecto_2/fast
 
+MatrizDispersa.obj: MatrizDispersa.cpp.obj
+
+.PHONY : MatrizDispersa.obj
+
+# target to build an object file
+MatrizDispersa.cpp.obj:
+	$(MAKE) -f CMakeFiles\Proyecto_2.dir\build.make CMakeFiles/Proyecto_2.dir/MatrizDispersa.cpp.obj
+.PHONY : MatrizDispersa.cpp.obj
+
+MatrizDispersa.i: MatrizDispersa.cpp.i
+
+.PHONY : MatrizDispersa.i
+
+# target to preprocess a source file
+MatrizDispersa.cpp.i:
+	$(MAKE) -f CMakeFiles\Proyecto_2.dir\build.make CMakeFiles/Proyecto_2.dir/MatrizDispersa.cpp.i
+.PHONY : MatrizDispersa.cpp.i
+
+MatrizDispersa.s: MatrizDispersa.cpp.s
+
+.PHONY : MatrizDispersa.s
+
+# target to generate assembly for a file
+MatrizDispersa.cpp.s:
+	$(MAKE) -f CMakeFiles\Proyecto_2.dir\build.make CMakeFiles/Proyecto_2.dir/MatrizDispersa.cpp.s
+.PHONY : MatrizDispersa.cpp.s
+
 main.obj: main.cpp.obj
 
 .PHONY : main.obj
@@ -158,6 +185,9 @@ help:
 	@echo ... Proyecto_2
 	@echo ... edit_cache
 	@echo ... rebuild_cache
+	@echo ... MatrizDispersa.obj
+	@echo ... MatrizDispersa.i
+	@echo ... MatrizDispersa.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s
