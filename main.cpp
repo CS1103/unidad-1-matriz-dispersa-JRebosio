@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
-#include "MatrizDispersa.h"
+#include "MatrizDispersa.cpp"
+#include <ctime>
 
 using namespace std;
 
@@ -9,8 +10,8 @@ using namespace std;
 
 int main()
 {
-    srand(time(NULL));
-
+    //srand(time(NULL));
+    /*
     try {
 
         PruebaContructor();
@@ -21,6 +22,7 @@ int main()
         cout << "FALLA" << e.what() << "'" << endl;
         return 1;
     }
+     */
 
 
     MatrizDispersa < int > matrix ( 3 );
@@ -33,11 +35,14 @@ int main()
 
 
     MatrizDispersa<int> mtr(9, 10);
-    vector<int> vct7, 3);
+    vector<int> vct(10);
 
     vector<int> result;
-    resultado = mtr.producto(vct);
-    resultado = mtr * vct;
+    result = mtr * vct;
+
+    for(int u:result){
+        printf("%d", u);
+    }
 
 
     return 0;

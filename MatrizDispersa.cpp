@@ -32,18 +32,17 @@ MatrizDispersa<T>::~MatrizDispersa(void) {
 
 template<typename T>
 MatrizDispersa<T> &MatrizDispersa<T>::set(T val, int fila, int columna) {
-    for (int p= (*(this->filas))[fila];p < (*(this->filas))[fila+1] - 1; p++) {
+    for (int p= (*(this->filas))[fila];p < (*(this->filas))[fila+1] ; p++) {
         if (columna <= (*(this->columnas))[p])
             break;
 
-        if((*(this->cols))[p]!=columna){
+        if((*(this->columnas))[p]!=columna){
             this->valores->insert(this->columnas->begin() + p, val);
             this->columnas->insert(this->columnas->begin() + p, columna);
-            for (int i = fila; i <= this->f; i++) {
+            for (int i = fila+1 ; i <= this->f; i++) {
                 (*(this->filas))[i] += 1;
             }
         }
-
         else {
             (*(this->valores))[p] = val;
         }
@@ -65,17 +64,29 @@ T MatrizDispersa<T>::get(int fila, int columna) const {
 
 template<typename T>
 MatrizDispersa<T> MatrizDispersa<T>::operator*(const MatrizDispersa<T> &m) const {
-    return MatrizDispersa<T>(0);
+    MatrizDispersa<T> producto(this->fila, m.columna);
+    T elemento;
+    for (int i = 0; i < this->m; i++) {
+        for (int j = 0; j <  m.n; j++) {
+            elemento = T();
+            for (int k = 0; k < this->n; k++) {
+                elemento += this->get(i, k) * m.get(k, j);
+            }
+            producto.set(elemento, i, j);
+        }
+    }
+
+    return producto;
 }
 
 template<typename T>
 vector<T> MatrizDispersa<T>::operator*(const vector<T> &x) const {
 
-    vector<T> producto(this->c, 0);
+    vector<T> producto(this->f, 0);
 
-        for (int i = 0; i < this->columnas; i++)
-            for (int j = (*(this->rows))[i]; j < (*(this->rows))[i + 1]; j++)
-                producto[i]  += (*(this->valores))[j] * x[(*(this->cols))[j]];
+        for (int i = 0; i < this->f; i++)
+            for (int j = (*(this->filas))[i]; j < (*(this->filas))[i + 1]; j++)
+                producto[i]  += (*(this->valores))[j] * x[(*(this->columnas))[j]];
 
 
     return producto;
@@ -89,8 +100,8 @@ MatrizDispersa<T> MatrizDispersa<T>::operator+(const MatrizDispersa<T> &m) const
 
     MatrizDispersa<T> suma(this->m, this->n);
 
-    for (int i = 1; i <= this->m; i++)
-        for (int j = 1; j <= this->n; j++)
+    for (int i = 0; i < this->m; i++)
+        for (int j = 0; j < this->n; j++)
             suma.set(this->get(i, j) + m.get(i, j), i, j);
 
     return suma;
@@ -107,3 +118,5 @@ void MatrizDispersa<T>::constructor(int fil, int col) {
     this->filas = new vector<int>(fil + 1, 0);
 
 }
+
+

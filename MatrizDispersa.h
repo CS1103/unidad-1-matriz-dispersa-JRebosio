@@ -6,6 +6,7 @@
 #define PROYECTO_2_MATRIZDISPERSA_H
 
 #include <vector>
+#include <iostream>
 
 
 using namespace std;
@@ -31,10 +32,10 @@ public:
 
 
 protected:
-    int f,c;
+    int f, c;
     void constructor(int f, int c);
     vector<T> * valores;
-    vector<int>  * filas * columnas;
+    vector<int>  * filas, * columnas;
 
 };
 

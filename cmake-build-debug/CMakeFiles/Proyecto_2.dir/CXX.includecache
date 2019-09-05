@@ -1,0 +1,32 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Proyecto 2/MatrizDispersa.cpp
+MatrizDispersa.h
+C:/Proyecto 2/MatrizDispersa.h
+iostream
+-
+vector
+-
+
+C:/Proyecto 2/MatrizDispersa.h
+vector
+-
+iostream
+-
+
+C:/Proyecto 2/main.cpp
+vector
+-
+iostream
+-
+MatrizDispersa.cpp
+C:/Proyecto 2/MatrizDispersa.cpp
+ctime
+-
+
