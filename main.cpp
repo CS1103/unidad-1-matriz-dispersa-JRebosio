@@ -1,6 +1,7 @@
 #include <vector>
 #include <iostream>
 #include "MatrizDispersa.cpp"
+#include "MatrizDispersa.h"
 #include <ctime>
 
 using namespace std;
@@ -25,24 +26,27 @@ int main()
      */
 
 
+
+
     MatrizDispersa < int > matrix ( 3 );
     MatrizDispersa < int > matrix2 ( 4 , 5 );
 
     int val;
-    matrix.set (- 5 , 2 , 3 );
-    val = matrix.get ( 2 , 3 );
-    cout<<val;
+    matrix.set(4,0,1);
+    matrix.set(5,1,1);
 
+    matrix.set(1,2,2);
+    val = matrix.get(1,1);
+    cout<<val<<"hola";
+    vector<int> resultado;
+   // vector<int> ggg{0, 2, 3};
+   //resultado =  matrix*ggg;
 
-    MatrizDispersa<int> mtr(9, 10);
-    vector<int> vct(10);
+   // cout<<matrix.get(2,2);
 
-    vector<int> result;
-    result = mtr * vct;
-
-    for(int u:result){
+    /*for(int u:resultado){
         printf("%d", u);
-    }
+    }*/
 
 
     return 0;

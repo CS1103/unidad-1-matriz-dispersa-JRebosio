@@ -19,35 +19,42 @@ MatrizDispersa<T>::MatrizDispersa(int n) {
 
 
 template<typename T>
-MatrizDispersa<T>::MatrizDispersa(int nf, int nc) {
+MatrizDispersa<T>::MatrizDispersa(int filas, int columnas) {
 
-    this->constructor(nf,nc);
+    this->constructor(filas,columnas);
 }
 
 template<typename T>
 MatrizDispersa<T>::~MatrizDispersa(void) {
-
+    this->destruct();
 }
 
 
 template<typename T>
 MatrizDispersa<T> &MatrizDispersa<T>::set(T val, int fila, int columna) {
-    for (int p= (*(this->filas))[fila];p < (*(this->filas))[fila+1] ; p++) {
-        if (columna <= (*(this->columnas))[p])
+    int p;
+    int ccol=0;
+    for (p= (*(this->filas))[fila];p < (*(this->filas))[fila+1] ; p++) {
+        ccol=(*(this->columnas))[p];
+        if (columna <= ccol)
             break;
+    }
+        if(ccol!=columna) {
 
-        if((*(this->columnas))[p]!=columna){
-            this->valores->insert(this->columnas->begin() + p, val);
-            this->columnas->insert(this->columnas->begin() + p, columna);
-            for (int i = fila+1 ; i <= this->f; i++) {
-                (*(this->filas))[i] += 1;
+            if (!(val == T())) {
+
+                this->valores->insert(this->columnas->begin() + p, val);
+                this->columnas->insert(this->columnas->begin() + p, columna);
+                for (int i = fila + 1; i <= this->f; i++) {
+                    (*(this->filas))[i] += 1;
+                }
             }
         }
         else {
             (*(this->valores))[p] = val;
-        }
-    }
+}
     return *this;
+
 }
 
 
@@ -108,14 +115,26 @@ MatrizDispersa<T> MatrizDispersa<T>::operator+(const MatrizDispersa<T> &m) const
 }
 
 template<typename T>
-void MatrizDispersa<T>::constructor(int fil, int col) {
+void MatrizDispersa<T>::constructor(int filas, int columnas) {
 
-    this->f = fil;
-    this->c = col;
+    this->f = filas;
+    this->c = columnas;
 
     this->valores = NULL;
     this->columnas = NULL;
-    this->filas = new vector<int>(fil + 1, 0);
+    this->filas = new vector<int>(filas + 1, 0);
+
+}
+
+
+template<typename T>
+void MatrizDispersa<T>::destruct(void) {
+    if (this->valores != NULL) {
+        delete this->valores;
+        delete this->columnas;
+    }
+
+    delete this->filas;
 
 }
 

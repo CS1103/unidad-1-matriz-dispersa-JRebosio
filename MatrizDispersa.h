@@ -16,7 +16,7 @@ class MatrizDispersa {
 public:
 
     MatrizDispersa(int n);
-    MatrizDispersa(int nf, int nc);
+    MatrizDispersa(int filas, int columnas);
     ~MatrizDispersa(void);
 
     MatrizDispersa & set(T val, int fila, int columna);
@@ -33,9 +33,11 @@ public:
 
 protected:
     int f, c;
-    void constructor(int f, int c);
     vector<T> * valores;
     vector<int>  * filas, * columnas;
+    void constructor(int f, int c);
+    void destruct(void);
+
 
 };
 
