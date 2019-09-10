@@ -11,16 +11,11 @@ using namespace std;
 
 template<typename T>
 MatrizDispersa<T>::MatrizDispersa(int n) {
-
     this->constructor(n,n);
-
 }
-
-
 
 template<typename T>
 MatrizDispersa<T>::MatrizDispersa(int filas, int columnas) {
-
     this->constructor(filas,columnas);
 }
 
@@ -32,25 +27,27 @@ MatrizDispersa<T>::~MatrizDispersa(void) {
 
 template<typename T>
 MatrizDispersa<T> &MatrizDispersa<T>::set(T val, int fila, int columna) {
-    int p;
+    int p=0;
     int ccol=0;
     for (p= (*(this->filas))[fila];p < (*(this->filas))[fila+1] ; p++) {
         ccol=(*(this->columnas))[p];
         if (columna <= ccol)
             break;
     }
-        if(ccol!=columna) {
-
-            if (!(val == T())) {
-
-                this->valores->insert(this->columnas->begin() + p, val);
+        if(ccol!=columna || (ccol==0 && columna==0 )) {
+            if (this->valores == NULL) {
+                this->valores = new vector<T>(1, val);
+                this->columnas = new vector<int>(1, columna);
+            } else {
+                this->valores->insert(this->valores->begin() + p, val);
                 this->columnas->insert(this->columnas->begin() + p, columna);
-                for (int i = fila + 1; i <= this->f; i++) {
-                    (*(this->filas))[i] += 1;
                 }
+            for (int i = fila + 1; i <= this->f; i++) {
+                (*(this->filas))[i] += 1;
             }
         }
         else {
+
             (*(this->valores))[p] = val;
 }
     return *this;

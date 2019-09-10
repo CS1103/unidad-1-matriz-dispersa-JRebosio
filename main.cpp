@@ -32,12 +32,11 @@ int main()
     MatrizDispersa < int > matrix2 ( 4 , 5 );
 
     int val;
-    matrix.set(4,0,1);
     matrix.set(5,1,1);
+    matrix.set(3,0,0);
 
-    matrix.set(1,2,2);
     val = matrix.get(1,1);
-    cout<<val<<"hola";
+    cout<<val;
     vector<int> resultado;
    // vector<int> ggg{0, 2, 3};
    //resultado =  matrix*ggg;
